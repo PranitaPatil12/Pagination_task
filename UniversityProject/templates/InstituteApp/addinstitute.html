@@ -1,0 +1,19 @@
+
+{% extends 'InstituteApp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block tittle %}
+    <tittle>Application Form</tittle>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" class="jumbotron " enctype="multipart/form-data" style="margin:auto;width:60%">
+            {% csrf_token %}
+            <h1 style="text-align:center;color:crimson">Add Institute</h1>
+            {{form | crispy}}
+            <input type="submit"  class="btn btn-primary " style="margin-left:40%">
+        </form>
+    </div>
+    <a href="{% url 'show_list' %}"><button class="btn btn-success" style="margin-left:4.5%">Institute List</button></a>
+{% endblock %}
